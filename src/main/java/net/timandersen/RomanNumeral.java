@@ -35,13 +35,6 @@ public enum RomanNumeral {
         return value;
     }
 
-    public static RomanNumeral lookupBy(int arabicValue) {
-        for (RomanNumeral romanNumeral : values()) {
-            if (romanNumeral.getValue() == arabicValue) return romanNumeral;
-        }
-        return null;
-    }
-
 
     public static List<RomanNumeral> descendingOrder() {
         List<RomanNumeral> romans = Arrays.asList(values());
