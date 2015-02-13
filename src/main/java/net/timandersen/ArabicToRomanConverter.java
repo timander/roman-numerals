@@ -1,25 +1,22 @@
 package net.timandersen;
 
 public class ArabicToRomanConverter {
-    public final StringBuilder processed = new StringBuilder();
-    public int remainder;
+    private String roman;
+    private int arabic;
 
-    public ArabicToRomanConverter(int remainder) {
-        this.remainder = remainder;
+    public ArabicToRomanConverter(int arabic) {
+        this.arabic = arabic;
+        this.roman = "";
     }
 
     public String convert() {
-        for (RomanNumeral romanNumeral : RomanNumeral.descendingOrder()) {
-            process(romanNumeral);
+        for (RomanNumeral romanNumeral : RomanNumeral.values()) {
+            while (arabic >= romanNumeral.intValue()) {
+                roman += romanNumeral.name();
+                arabic -= romanNumeral.intValue();
+            }
         }
-        return processed.toString();
-    }
-
-    private void process(RomanNumeral romanNumeral) {
-        while (remainder >= romanNumeral.getValue()) {
-            processed.append(romanNumeral.getSymbol());
-            remainder -= romanNumeral.getValue();
-        }
+        return roman;
     }
 
 

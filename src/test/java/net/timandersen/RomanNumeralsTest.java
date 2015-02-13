@@ -8,6 +8,7 @@ public class RomanNumeralsTest {
 
     @Test
     public void arabicToRoman() {
+        assertRoman("", 0);
         assertRoman("I", 1);
         assertRoman("II", 2);
         assertRoman("III", 3);
@@ -27,6 +28,8 @@ public class RomanNumeralsTest {
         assertRoman("CM", 900);
         assertRoman("M", 1000);
         assertRoman("MMXIII", 2013);
+        assertRoman("MMXIV", 2014);
+        assertRoman("MMXV", 2015);
     }
 
     @Test
@@ -37,9 +40,8 @@ public class RomanNumeralsTest {
     }
 
 
-    private void assertRoman(String roman, int arabic) {
-        assertEquals(Integer.toString(arabic), roman, RomanNumerals.arabicToRoman(arabic));
+    private void assertRoman(String roman, Integer arabic) {
+        assertEquals(arabic.toString(), roman, RomanNumerals.arabicToRoman(arabic));
     }
-
 
 }

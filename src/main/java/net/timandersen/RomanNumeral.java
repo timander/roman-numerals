@@ -1,10 +1,5 @@
 package net.timandersen;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public enum RomanNumeral {
 
     M(1000),
@@ -21,29 +16,14 @@ public enum RomanNumeral {
     IV(4),
     I(1);
 
-    private Integer value;
+    private int value;
 
-    RomanNumeral(Integer value) {
+    RomanNumeral(int value) {
         this.value = value;
     }
 
-    public String getSymbol() {
-        return name();
-    }
-
-    public Integer getValue() {
+    public int intValue() {
         return value;
     }
 
-
-    public static List<RomanNumeral> descendingOrder() {
-        List<RomanNumeral> romans = Arrays.asList(values());
-        Collections.sort(romans, new Comparator<RomanNumeral>() {
-            @Override
-            public int compare(RomanNumeral o1, RomanNumeral o2) {
-                return o2.getValue().compareTo(o1.getValue());
-            }
-        });
-        return romans;
-    }
 }
