@@ -27,27 +27,17 @@ public class RomanCalculator {
     }
 
     private String convertToRoman(int arabicValue) {
-
         int originalValue = arabicValue;
         List<Integer> divisibleValues = new ArrayList<Integer>();
-
-        int remainder = 0;
-        while (originalValue > 0) {
-            System.out.println("originalValue = " + originalValue);
-            System.out.println("remainder = " + remainder);
-            if (originalValue >= 10) {
-                divisibleValues.add(10);
-                remainder = originalValue % 10;
-                originalValue = originalValue - 10;
-            } else if (originalValue >= 5) {
-                divisibleValues.add(5);
-                remainder = originalValue % 5;
-                originalValue = originalValue - 5;
-            } else {
-                divisibleValues.add(1);
-                originalValue--;
+        for (RomanNumeral romanNumeral : RomanNumeral.descendingOrder()) {
+            originalValue = operate(romanNumeral.getArabicValue(), originalValue, divisibleValues);
+            if (originalValue >= romanNumeral.getArabicValue()) {
+                originalValue = operate(romanNumeral.getArabicValue(), originalValue, divisibleValues);
+            } else if (originalValue >= romanNumeral.getArabicValue()) {
+                originalValue = operate(romanNumeral.getArabicValue(), originalValue, divisibleValues);
+            } else if (originalValue >= romanNumeral.getArabicValue()) {
+                originalValue = operate(romanNumeral.getArabicValue(), originalValue, divisibleValues);
             }
-
         }
         String romanNumeral = "";
         for (Integer divisibleValue : divisibleValues) {
@@ -55,5 +45,17 @@ public class RomanCalculator {
         }
         return romanNumeral;
 
+    }
+
+    private int operate(int numeral, int originalValue, List<Integer> divisibleValues) {
+        int returnValue = 0;
+        if (originalValue >= numeral) {
+            divisibleValues.add(numeral);
+            originalValue -= numeral;
+            returnValue = originalValue;
+        } else {
+            returnValue = originalValue;
+        }
+        return returnValue;
     }
 }

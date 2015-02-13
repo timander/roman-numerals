@@ -14,6 +14,18 @@ public class RomanCalculatorTest {
     }
 
     @Test
+    public void fivePlusFive() {
+        RomanCalculator calculator = new RomanCalculator();
+        assertEquals("X", calculator.enter("V").plus("V").display());
+    }
+
+    @Test
+    public void onePlusOne() {
+        RomanCalculator calculator = new RomanCalculator();
+        assertEquals("II", calculator.enter("I").plus("I").display());
+    }
+
+    @Test
     public void fivePlusTen() {
         RomanCalculator calculator = new RomanCalculator();
         assertEquals("XV", calculator.enter("V").plus("X").display());
