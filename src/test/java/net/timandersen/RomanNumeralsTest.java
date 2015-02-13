@@ -6,14 +6,40 @@ import static org.junit.Assert.assertEquals;
 
 public class RomanNumeralsTest {
 
-
     @Test
     public void arabicToRoman() {
-        assertRoman(1, "i");
+        assertRoman("I", 1);
+        assertRoman("II", 2);
+        assertRoman("III", 3);
+        assertRoman("IV", 4);
+        assertRoman("V", 5);
+        assertRoman("VI", 6);
+        assertRoman("VII", 7);
+        assertRoman("VIII", 8);
+        assertRoman("IX", 9);
+        assertRoman("X", 10);
+        assertRoman("XL", 40);
+        assertRoman("L", 50);
+        assertRoman("XC", 90);
+        assertRoman("C", 100);
+        assertRoman("CD", 400);
+        assertRoman("D", 500);
+        assertRoman("CM", 900);
+        assertRoman("M", 1000);
+        assertRoman("MMXIII", 2013);
+
     }
 
-    private void assertRoman(int arabic, String roman) {
-        assertEquals(Integer.valueOf(arabic).toString(), roman, RomanNumerals.arabicToRoman(arabic));
+    @Test
+    public void count() {
+        for (int i = 0; i <= 1000; i++) {
+            System.out.println("RomanNumerals.arabicToRoman(" + i + ") = " + RomanNumerals.arabicToRoman(i));
+        }
+    }
+
+
+    private void assertRoman(String roman, int arabic) {
+        assertEquals(Integer.toString(arabic), roman, RomanNumerals.arabicToRoman(arabic));
     }
 
 
