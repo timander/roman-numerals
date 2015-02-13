@@ -1,10 +1,10 @@
 package net.timandersen;
 
-public class ArabicToRomanConversion {
+public class ArabicToRomanConverter {
     public final StringBuilder processed = new StringBuilder();
     public int remainder;
 
-    public ArabicToRomanConversion(int remainder) {
+    public ArabicToRomanConverter(int remainder) {
         this.remainder = remainder;
     }
 
