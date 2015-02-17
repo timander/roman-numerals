@@ -26,4 +26,10 @@ public enum RomanNumeral {
         return value;
     }
 
+    public static RomanNumeral findHighestRomanFor(int arabic) {
+        for (RomanNumeral romanNumeral : values()) {
+            if (romanNumeral.intValue() <= arabic) return romanNumeral;
+        }
+        throw new IllegalStateException(arabic + "");
+    }
 }
